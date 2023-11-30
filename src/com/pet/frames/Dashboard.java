@@ -75,8 +75,10 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        jTableDatewiseExpense = new javax.swing.JTable();
         jButton4 = new javax.swing.JButton();
+        jDateChooserDaywiseDate = new com.toedter.calendar.JDateChooser();
+        jLabel31 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -86,6 +88,7 @@ public class Dashboard extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jComboBox4 = new javax.swing.JComboBox<>();
         jLabel29 = new javax.swing.JLabel();
+        jMonthChooser1 = new com.toedter.calendar.JMonthChooser();
         jPanel7 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
@@ -180,15 +183,15 @@ public class Dashboard extends javax.swing.JFrame {
 
         lbltotalYear.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         lbltotalYear.setForeground(new java.awt.Color(204, 0, 51));
-        lbltotalYear.setText(Long.toString(Report.totalMoneySpentThisYear()));
+        lbltotalYear.setText(Long.toString(Report.totalMoneySpentThisYear())+" Rs");
 
         lbltotalMonth.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         lbltotalMonth.setForeground(new java.awt.Color(204, 0, 51));
-        lbltotalMonth.setText(Double.toString(Report.totalMoneySpentThisMonth()));
+        lbltotalMonth.setText(Double.toString(Report.totalMoneySpentThisMonth())+" Rs");
 
         lbltotaltoday.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         lbltotaltoday.setForeground(new java.awt.Color(204, 0, 51));
-        lbltotaltoday.setText(Double.toString(Report.totalMoneySpentToday()));
+        lbltotaltoday.setText(Double.toString(Report.totalMoneySpentToday())+" Rs");
 
         jButton1.setText("Update");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -202,7 +205,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         lbltotal.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         lbltotal.setForeground(new java.awt.Color(204, 0, 51));
-        lbltotal.setText(Long.toString(Report.totalMoneySpent()));
+        lbltotal.setText(Long.toString(Report.totalMoneySpent())+" Rs");
 
         javax.swing.GroupLayout jPanelHomeLayout = new javax.swing.GroupLayout(jPanelHome);
         jPanelHome.setLayout(jPanelHomeLayout);
@@ -221,10 +224,11 @@ public class Dashboard extends javax.swing.JFrame {
                             .addComponent(jLabel22))
                         .addGap(36, 36, 36)
                         .addGroup(jPanelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbltotalMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbltotal, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbltotaltoday, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbltotalYear, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(lbltotalMonth, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lbltotalYear, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)))))
                 .addContainerGap(547, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelHomeLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -292,6 +296,15 @@ public class Dashboard extends javax.swing.JFrame {
         }
 
         jComboBoxExpenseCategory.setModel(comboBoxModel);
+        jComboBoxExpenseCategory.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            }
+            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
+                jComboBoxExpenseCategoryPopupMenuWillBecomeInvisible(evt);
+            }
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+            }
+        });
         jComboBoxExpenseCategory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxExpenseCategoryActionPerformed(evt);
@@ -685,20 +698,28 @@ public class Dashboard extends javax.swing.JFrame {
     jLabel23.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
     jLabel23.setText("Todays Report");
 
-    jTable3.setModel(new javax.swing.table.DefaultTableModel(
+    jTableDatewiseExpense.setModel(new javax.swing.table.DefaultTableModel(
         new Object [][] {
-            {null, null},
-            {null, null},
-            {null, null},
-            {null, null}
+
         },
         new String [] {
             "Category Name", "Money Spent"
         }
     ));
-    jScrollPane5.setViewportView(jTable3);
+    jScrollPane5.setViewportView(jTableDatewiseExpense);
 
-    jButton4.setText("Update Record");
+    jButton4.setText("Update Report");
+    jButton4.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jButton4ActionPerformed(evt);
+        }
+    });
+
+    //Calendar today = Calendar.getInstance();
+    Date today=new Date();
+    jDateChooserDaywiseDate.setDate(today);
+
+    jLabel31.setText("Select a date :");
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
@@ -710,29 +731,35 @@ public class Dashboard extends javax.swing.JFrame {
                     .addContainerGap()
                     .addComponent(jScrollPane5))
                 .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(547, 547, 547)
-                            .addComponent(jLabel23))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(535, 535, 535)
-                            .addComponent(jButton4)))
-                    .addGap(0, 529, Short.MAX_VALUE)))
+                    .addGap(547, 547, 547)
+                    .addComponent(jLabel23)
+                    .addGap(0, 541, Short.MAX_VALUE)))
             .addContainerGap())
+        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(18, 18, 18)
+            .addComponent(jDateChooserDaywiseDate, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(18, 18, 18)
+            .addComponent(jButton4)
+            .addGap(458, 458, 458))
     );
     jPanel1Layout.setVerticalGroup(
         jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel1Layout.createSequentialGroup()
             .addContainerGap()
             .addComponent(jLabel23)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jButton4)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jDateChooserDaywiseDate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addContainerGap())
     );
 
-    jTabbedPane1.addTab("Today", jPanel1);
+    jTabbedPane1.addTab("Daywise", jPanel1);
 
     jLabel24.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
     jLabel24.setText("Monthly Report");
@@ -773,40 +800,50 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jScrollPane4)
                 .addGroup(jPanel8Layout.createSequentialGroup()
-                    .addGap(547, 547, 547)
-                    .addComponent(jLabel24)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap(201, Short.MAX_VALUE)
+                    .addComponent(jMonthChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel8Layout.createSequentialGroup()
+                            .addGap(202, 202, 202)
+                            .addComponent(jLabel24)
+                            .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                            .addGap(49, 49, 49)
+                            .addComponent(jLabel29)
+                            .addGap(26, 26, 26)
+                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jLabel28)
+                            .addGap(18, 18, 18)
+                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jButton3)
+                            .addGap(366, 366, 366)))))
             .addContainerGap())
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-            .addGap(0, 394, Short.MAX_VALUE)
-            .addComponent(jLabel29)
-            .addGap(26, 26, 26)
-            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(18, 18, 18)
-            .addComponent(jLabel28)
-            .addGap(18, 18, 18)
-            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(18, 18, 18)
-            .addComponent(jButton3)
-            .addGap(372, 372, 372))
     );
     jPanel8Layout.setVerticalGroup(
         jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel8Layout.createSequentialGroup()
-            .addContainerGap()
-            .addComponent(jLabel24)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel28)
-                .addComponent(jButton3)
-                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel29))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel8Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jLabel24)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel28)
+                        .addComponent(jButton3)
+                        .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel29))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jMonthChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(20, 20, 20)))
             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE))
     );
 
-    jTabbedPane1.addTab("Monthly", jPanel8);
+    jTabbedPane1.addTab("Monthwise", jPanel8);
 
     jLabel25.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
     jLabel25.setText("Yearly Report");
@@ -874,7 +911,7 @@ public class Dashboard extends javax.swing.JFrame {
             .addContainerGap())
     );
 
-    jTabbedPane1.addTab("Yearly", jPanel7);
+    jTabbedPane1.addTab("Yearwise", jPanel7);
 
     javax.swing.GroupLayout jPanelReportsLayout = new javax.swing.GroupLayout(jPanelReports);
     jPanelReports.setLayout(jPanelReportsLayout);
@@ -1159,13 +1196,13 @@ public class Dashboard extends javax.swing.JFrame {
         String formattedDate="";
         Object selectedValue = jComboBoxExpenseCategory.getSelectedItem();
 
-        if (selectedValue != null ) 
+        if (selectedValue != null && jComboBoxExpenseCategory.getItemCount()>0) 
         {
            category=selectedValue.toString();          
         }
         else
         {
-            new AlertPopupDanger(null,"Select a Category");
+            new AlertPopupDanger(null,"Select a Category or add");
             return;
         }
 
@@ -1331,6 +1368,50 @@ public class Dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jComboBoxExpenseCategoryPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_jComboBoxExpenseCategoryPopupMenuWillBecomeInvisible
+        // TODO add your handling code here:
+        DefaultComboBoxModel<String> comboBoxModel = new DefaultComboBoxModel<>();
+
+// Assuming you have a method getAllCategories in your Category class
+Object catdata[][] = Category.getAllCategories();
+
+if (catdata != null) {
+    for (Object[] row : catdata) {
+        comboBoxModel.addElement((String) row[1]); // Assuming the first column contains strings
+    }
+}
+
+jComboBoxExpenseCategory.setModel(comboBoxModel);
+
+        System.out.println("categories updated");        
+        
+    }//GEN-LAST:event_jComboBoxExpenseCategoryPopupMenuWillBecomeInvisible
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+       DefaultTableModel dm=(DefaultTableModel) jTableDatewiseExpense.getModel();
+       Date date=jDateChooserDaywiseDate.getDate();
+            String formattedDate="";
+            if(date!=null)
+               {
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                   formattedDate = dateFormat.format(date);                   
+               }
+
+       Object [][] datewiseData=Report.getDatewiseReport(formattedDate);
+       if (datewiseData != null) {
+    // Iterate through the rows and add them to the DefaultTableModel
+                for (Object[] row : datewiseData) {
+                    dm.addRow(row);
+                }
+            } else {
+                // Handle the case when data is null or empty
+                new AlertPopupDanger(null, "no data available");
+            }
+       
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1380,6 +1461,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBoxExpenseCategory;
+    private com.toedter.calendar.JDateChooser jDateChooserDaywiseDate;
     private com.toedter.calendar.JDateChooser jDateChooserExpenseDate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1406,6 +1488,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1413,6 +1496,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelCategoryErrror;
+    private com.toedter.calendar.JMonthChooser jMonthChooser1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
@@ -1439,8 +1523,8 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTable jTableCategory;
+    private javax.swing.JTable jTableDatewiseExpense;
     private javax.swing.JTable jTableExpense;
     private javax.swing.JTextField jTextField4Fname;
     private javax.swing.JTextField jTextField4Username;

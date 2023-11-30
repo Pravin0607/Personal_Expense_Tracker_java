@@ -23,8 +23,9 @@ public static boolean checkCategory(String category)
    Connection conn=DBConnection.getConnection();
    try
    {
-       PreparedStatement ps=conn.prepareStatement("select * from Category where category_name=?;");
+       PreparedStatement ps=conn.prepareStatement("select * from Category where category_name=? and user_id=?;");
        ps.setString(1, category);
+       ps.setInt(2, PersonalExpenseTracker.userId);
        ResultSet rs=ps.executeQuery();
        return rs.next();
    }catch(Exception e)

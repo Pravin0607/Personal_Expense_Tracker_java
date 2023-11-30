@@ -4,6 +4,8 @@
  */
 package com.pet.utility;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import personal.expense.tracker.PersonalExpenseTracker;
 /**
  *
@@ -94,4 +96,33 @@ public static double totalMoneySpentThisMonth() {
         
     }
     
+    public static Object[][] getDatewiseReport(String date) {
+        String query = "SELECT c.category_name, SUM(e.amount) " +
+                       "FROM Expense e " +
+                       "JOIN Category c ON e.category_id = c.category_id " +
+                       "WHERE e.user_id = ? AND e.date = ? " +
+                       "GROUP BY c.category_name";
+
+        Connection conn = DBConnection.getConnection();
+        List<Object[]> resultData = new ArrayList<>();
+
+        try (PreparedStatement ps = conn.prepareStatement(query)) {
+            ps.setInt(1, PersonalExpenseTracker.userId);
+            ps.setString(2, date);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    String category = rs.getString(1);
+                    double amount = rs.getDouble(2);
+                    resultData.add(new Object[]{category, amount});
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return resultData.toArray(new Object[0][]);
+    }
 }
+    
+   
