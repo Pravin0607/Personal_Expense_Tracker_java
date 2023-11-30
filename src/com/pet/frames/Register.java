@@ -423,6 +423,15 @@ public class Register extends javax.swing.JFrame {
         { 
             System.out.println("user registered");
             User.registerUser(fname, lname, email,uname , pass1);
+            User.setVariables(uname);
+//             opening the dashboard for user
+                this.setVisible(false);
+               java.awt.EventQueue.invokeLater(new Runnable(){
+                   public void run()
+                   {
+                       new Dashboard().setVisible(true);
+                   }
+               });                           
             
         }
         else

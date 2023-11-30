@@ -47,6 +47,34 @@ public class User
         }
 
     }
+
+    public static void setVariables(String username)
+    {
+                Connection conn=DBConnection.getConnection();
+        try
+        {
+            PreparedStatement ps=conn.prepareStatement("SELECT * FROM User WHERE username=?;");
+            ps.setString(1, username);
+            
+            ResultSet rs=ps.executeQuery();
+            
+            if(rs.next())
+            {
+                PersonalExpenseTracker.username=username;
+                PersonalExpenseTracker.userId=rs.getInt(1);
+                PersonalExpenseTracker.fname=rs.getString(2);
+                PersonalExpenseTracker.lname=rs.getString(3);
+                PersonalExpenseTracker.email=rs.getString(4);
+                System.out.println(username+" "+rs.getInt(1));
+            }
+            
+                
+        } catch(Exception e)
+        {
+            new AlertPopupDanger(null, "Database connection failed");
+            e.printStackTrace();
+         }        
+    }
     
     public static boolean login(String username,String password)
     {
