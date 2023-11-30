@@ -59,8 +59,7 @@ public class Validation
       
       boolean emailvalidate=validateEmail(em);
       boolean passvalidate=pass1.equals(pass2);
-      
-      addbutton.setEnabled(namevalidate && emailvalidate && passvalidate && User.checkUserName(uname));
+      addbutton.setEnabled(namevalidate && emailvalidate && passvalidate && !User.checkUserName(uname));
     }
     
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -63,7 +63,7 @@
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="68" max="32767" attributes="0"/>
+                  <EmptySpace pref="62" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -91,14 +91,19 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="jLabelPasswordError" max="32767" attributes="0"/>
                           <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldFname" pref="220" max="32767" attributes="0"/>
-                          <Component id="jTextFieldEmail" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jTextFieldFname" alignment="0" pref="240" max="32767" attributes="0"/>
                           <Component id="jPasswordFieldPassword" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabelEmailError" max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jLabelEmailError1" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabelEmailError" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="jTextFieldEmail" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -146,13 +151,19 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jLabelUsernameError" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabelUsernameError" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="jLabelEmailError" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabelEmailError" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jLabelEmailError1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -167,7 +178,9 @@
                               <Component id="jPasswordFieldConfirmPass" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="66" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelPasswordError" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="42" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jButtonCreateAccount" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="jButton2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
@@ -192,6 +205,9 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldFnameActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="jTextFieldFname.getDocument().addDocumentListener(new DocumentListener() {&#xa;&#xa;            public void insertUpdate(DocumentEvent e) &#xa;            {&#xa;              Validation.registrationAddButtonValidation(jTextFieldFname, jTextFieldLname, jTextFieldEmail, jTextFieldUsername, jPasswordFieldPassword, jPasswordFieldConfirmPass, jButtonCreateAccount);&#xa;            }&#xa;&#xa;            public void removeUpdate(DocumentEvent e) &#xa;                {&#xa;              Validation.registrationAddButtonValidation(jTextFieldFname, jTextFieldLname, jTextFieldEmail, jTextFieldUsername, jPasswordFieldPassword, jPasswordFieldConfirmPass, jButtonCreateAccount);&#xa;                 }&#xa;&#xa;            public void changedUpdate(DocumentEvent e) {&#xa;                // This method is not used for plain text documents&#xa;            }&#xa;&#xa;});"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
@@ -204,6 +220,9 @@
                   <Dimension value="[64, 30]"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jTextFieldLname.getDocument().addDocumentListener(new DocumentListener() {&#xa;&#xa;            public void insertUpdate(DocumentEvent e) &#xa;            {&#xa;              Validation.registrationAddButtonValidation(jTextFieldFname, jTextFieldLname, jTextFieldEmail, jTextFieldUsername, jPasswordFieldPassword, jPasswordFieldConfirmPass, jButtonCreateAccount);&#xa;            }&#xa;&#xa;            public void removeUpdate(DocumentEvent e) &#xa;                {&#xa;              Validation.registrationAddButtonValidation(jTextFieldFname, jTextFieldLname, jTextFieldEmail, jTextFieldUsername, jPasswordFieldPassword, jPasswordFieldConfirmPass, jButtonCreateAccount);&#xa;                 }&#xa;&#xa;            public void changedUpdate(DocumentEvent e) {&#xa;                // This method is not used for plain text documents&#xa;            }&#xa;&#xa;});"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel4">
               <Properties>
@@ -216,6 +235,9 @@
                   <Dimension value="[64, 30]"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jTextFieldEmail.getDocument().addDocumentListener(new DocumentListener() {&#xa;&#xa;         public  void check()&#xa;                {&#xa;                      if(Validation.validateEmail(jTextFieldEmail.getText()))&#xa;                        {&#xa;                           jLabelEmailError1.setText(&quot;valid Email&quot;);&#xa;                        }&#xa;                            else&#xa;                           {&#xa;                             jLabelEmailError1.setText(&quot;invalid Email&quot;);&#xa;                           }&#xa;                }&#xa;            public void insertUpdate(DocumentEvent e) &#xa;            {&#xa;              Validation.registrationAddButtonValidation(jTextFieldFname, jTextFieldLname, jTextFieldEmail, jTextFieldUsername, jPasswordFieldPassword, jPasswordFieldConfirmPass, jButtonCreateAccount);&#xa;                  check();&#xa;            }&#xa;&#xa;            public void removeUpdate(DocumentEvent e) &#xa;                {&#xa;              Validation.registrationAddButtonValidation(jTextFieldFname, jTextFieldLname, jTextFieldEmail, jTextFieldUsername, jPasswordFieldPassword, jPasswordFieldConfirmPass, jButtonCreateAccount);&#xa;                  check();&#xa;                 }&#xa;&#xa;            public void changedUpdate(DocumentEvent e) {&#xa;                // This method is not used for plain text documents&#xa;            }&#xa;&#xa;});"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
@@ -255,6 +277,9 @@
                   <Dimension value="[64, 30]"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jPasswordFieldPassword.getDocument().addDocumentListener(new DocumentListener() {&#xa;&#xa;  public void checkpass()&#xa;     {&#xa;        String pass1=new String(jPasswordFieldPassword.getPassword());&#xa;        String pass2=new String(jPasswordFieldConfirmPass.getPassword());&#xa;          if(pass1.equals(pass2))&#xa;         {&#xa;           jLabelPasswordError.setText(&quot;password matches&quot;);&#xa;         }&#xa;        else&#xa;          {&#xa;            jLabelPasswordError.setText(&quot;password didn&apos;t match&quot;);&#xa;           }&#xa;     }&#xa;            public void insertUpdate(DocumentEvent e) &#xa;            {&#xa;              Validation.registrationAddButtonValidation(jTextFieldFname, jTextFieldLname, jTextFieldEmail, jTextFieldUsername, jPasswordFieldPassword, jPasswordFieldConfirmPass, jButtonCreateAccount);&#xa;               checkpass();&#xa;            }&#xa;&#xa;            public void removeUpdate(DocumentEvent e) &#xa;                {&#xa;              Validation.registrationAddButtonValidation(jTextFieldFname, jTextFieldLname, jTextFieldEmail, jTextFieldUsername, jPasswordFieldPassword, jPasswordFieldConfirmPass, jButtonCreateAccount);&#xa;             checkpass();&#xa;                 }&#xa;&#xa;            public void changedUpdate(DocumentEvent e) {&#xa;                // This method is not used for plain text documents&#xa;            }&#xa;&#xa;});"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
@@ -269,7 +294,7 @@
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTextField()"/>
-                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jTextFieldUsername.getDocument().addDocumentListener(new DocumentListener() &#xa;{&#xa;&#xa;            public void check()&#xa;             {&#xa;                if(!jTextFieldUsername.getText().equals(&quot; &quot;))&#xa;                     {&#xa;                        if(User.checkUserName(jTextFieldUsername.getText()))&#xa;                        {&#xa;                         jLabelUsernameError.setForeground(Color.RED);&#xa;                         jLabelUsernameError.setText(&quot;username unavailable&quot;);&#xa;                         jButtonCreateAccount.setEnabled(false);&#xa;                        }&#xa;                        else&#xa;                        {&#xa;                         jLabelUsernameError.setForeground(Color.GREEN);&#xa;                         jLabelUsernameError.setText(&quot;username available&quot;);&#xa;                         jButtonCreateAccount.setEnabled(true);&#xa;                        }&#xa;                     }&#xa;                }&#xa;&#xa;            public void insertUpdate(DocumentEvent e) &#xa;            {&#xa;              check();&#xa;            }&#xa;&#xa;            public void removeUpdate(DocumentEvent e) &#xa;                {&#xa;                    check();&#xa;                 }&#xa;&#xa;            public void changedUpdate(DocumentEvent e) {&#xa;                // This method is not used for plain text documents&#xa;            }&#xa;        });"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jTextFieldUsername.getDocument().addDocumentListener(new DocumentListener() &#xa;{&#xa;&#xa;            public void check()&#xa;             {&#xa;                if(!jTextFieldUsername.getText().equals(&quot; &quot;))&#xa;                     {&#xa;                        if(User.checkUserName(jTextFieldUsername.getText()))&#xa;                        {&#xa;//                         jLabelUsernameError.setForeground(Color.RED);&#xa;                         jLabelUsernameError.setText(&quot;username unavailable&quot;);&#xa;//                         jButtonCreateAccount.setEnabled(false);&#xa;              Validation.registrationAddButtonValidation(jTextFieldFname, jTextFieldLname, jTextFieldEmail, jTextFieldUsername, jPasswordFieldPassword, jPasswordFieldConfirmPass, jButtonCreateAccount);&#xa;                        }&#xa;                        else&#xa;                        {&#xa;//                         jLabelUsernameError.setForeground(Color.GREEN);&#xa;                         jLabelUsernameError.setText(&quot;username available&quot;);&#xa;//                         jButtonCreateAccount.setEnabled(true);&#xa;              Validation.registrationAddButtonValidation(jTextFieldFname, jTextFieldLname, jTextFieldEmail, jTextFieldUsername, jPasswordFieldPassword, jPasswordFieldConfirmPass, jButtonCreateAccount);&#xa;                        }&#xa;                     }&#xa;                }&#xa;&#xa;            public void insertUpdate(DocumentEvent e) &#xa;            {&#xa;              check();&#xa;            }&#xa;&#xa;            public void removeUpdate(DocumentEvent e) &#xa;                {&#xa;                    check();&#xa;                 }&#xa;&#xa;            public void changedUpdate(DocumentEvent e) {&#xa;                // This method is not used for plain text documents&#xa;            }&#xa;        });"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel7">
@@ -283,14 +308,36 @@
                   <Dimension value="[64, 30]"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jPasswordFieldConfirmPass.getDocument().addDocumentListener(new DocumentListener() {&#xa;  public void checkpass()&#xa;     {&#xa;        String pass1=new String(jPasswordFieldPassword.getPassword());&#xa;        String pass2=new String(jPasswordFieldConfirmPass.getPassword());&#xa;          if(pass1.equals(pass2))&#xa;         {&#xa;           jLabelPasswordError.setText(&quot;password matches&quot;);&#xa;         }&#xa;        else&#xa;          {&#xa;            jLabelPasswordError.setText(&quot;password didn&apos;t match&quot;);&#xa;           }&#xa;     }&#xa;            public void insertUpdate(DocumentEvent e) &#xa;            {&#xa;              Validation.registrationAddButtonValidation(jTextFieldFname, jTextFieldLname, jTextFieldEmail, jTextFieldUsername, jPasswordFieldPassword, jPasswordFieldConfirmPass, jButtonCreateAccount);&#xa;               checkpass();&#xa;            }&#xa;&#xa;            public void removeUpdate(DocumentEvent e) &#xa;                {&#xa;              Validation.registrationAddButtonValidation(jTextFieldFname, jTextFieldLname, jTextFieldEmail, jTextFieldUsername, jPasswordFieldPassword, jPasswordFieldConfirmPass, jButtonCreateAccount);&#xa;                 checkpass();&#xa;                 }&#xa;&#xa;            public void changedUpdate(DocumentEvent e) {&#xa;                // This method is not used for plain text documents&#xa;            }&#xa;&#xa;});"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelUsernameError">
               <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="33" green="0" red="ff" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value=" "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelEmailError">
               <Properties>
+                <Property name="text" type="java.lang.String" value=" "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelEmailError1">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="33" green="0" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value=" "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelPasswordError">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="33" green="0" red="ff" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value=" "/>
               </Properties>
             </Component>

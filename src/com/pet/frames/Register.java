@@ -2,11 +2,12 @@
 package com.pet.frames;
 
 import personal.expense.tracker.PersonalExpenseTracker;
-import com.pet.utility.User;
+import com.pet.utility.*;
 import java.awt.Color;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
+import javax.swing.event.*;
+import javax.swing.*;
 
+import javax.swing.*;
 
 public class Register extends javax.swing.JFrame {
 
@@ -38,6 +39,8 @@ public class Register extends javax.swing.JFrame {
         jPasswordFieldConfirmPass = new javax.swing.JPasswordField();
         jLabelUsernameError = new javax.swing.JLabel();
         jLabelEmailError = new javax.swing.JLabel();
+        jLabelEmailError1 = new javax.swing.JLabel();
+        jLabelPasswordError = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,14 +57,78 @@ public class Register extends javax.swing.JFrame {
                 jTextFieldFnameActionPerformed(evt);
             }
         });
+        jTextFieldFname.getDocument().addDocumentListener(new DocumentListener() {
+
+            public void insertUpdate(DocumentEvent e)
+            {
+                Validation.registrationAddButtonValidation(jTextFieldFname, jTextFieldLname, jTextFieldEmail, jTextFieldUsername, jPasswordFieldPassword, jPasswordFieldConfirmPass, jButtonCreateAccount);
+            }
+
+            public void removeUpdate(DocumentEvent e)
+            {
+                Validation.registrationAddButtonValidation(jTextFieldFname, jTextFieldLname, jTextFieldEmail, jTextFieldUsername, jPasswordFieldPassword, jPasswordFieldConfirmPass, jButtonCreateAccount);
+            }
+
+            public void changedUpdate(DocumentEvent e) {
+                // This method is not used for plain text documents
+            }
+
+        });
 
         jLabel3.setText("Last Name :");
 
         jTextFieldLname.setPreferredSize(new java.awt.Dimension(64, 30));
+        jTextFieldLname.getDocument().addDocumentListener(new DocumentListener() {
+
+            public void insertUpdate(DocumentEvent e)
+            {
+                Validation.registrationAddButtonValidation(jTextFieldFname, jTextFieldLname, jTextFieldEmail, jTextFieldUsername, jPasswordFieldPassword, jPasswordFieldConfirmPass, jButtonCreateAccount);
+            }
+
+            public void removeUpdate(DocumentEvent e)
+            {
+                Validation.registrationAddButtonValidation(jTextFieldFname, jTextFieldLname, jTextFieldEmail, jTextFieldUsername, jPasswordFieldPassword, jPasswordFieldConfirmPass, jButtonCreateAccount);
+            }
+
+            public void changedUpdate(DocumentEvent e) {
+                // This method is not used for plain text documents
+            }
+
+        });
 
         jLabel4.setText("Email :");
 
         jTextFieldEmail.setPreferredSize(new java.awt.Dimension(64, 30));
+        jTextFieldEmail.getDocument().addDocumentListener(new DocumentListener() {
+
+            public  void check()
+            {
+                if(Validation.validateEmail(jTextFieldEmail.getText()))
+                {
+                    jLabelEmailError1.setText("valid Email");
+                }
+                else
+                {
+                    jLabelEmailError1.setText("invalid Email");
+                }
+            }
+            public void insertUpdate(DocumentEvent e)
+            {
+                Validation.registrationAddButtonValidation(jTextFieldFname, jTextFieldLname, jTextFieldEmail, jTextFieldUsername, jPasswordFieldPassword, jPasswordFieldConfirmPass, jButtonCreateAccount);
+                check();
+            }
+
+            public void removeUpdate(DocumentEvent e)
+            {
+                Validation.registrationAddButtonValidation(jTextFieldFname, jTextFieldLname, jTextFieldEmail, jTextFieldUsername, jPasswordFieldPassword, jPasswordFieldConfirmPass, jButtonCreateAccount);
+                check();
+            }
+
+            public void changedUpdate(DocumentEvent e) {
+                // This method is not used for plain text documents
+            }
+
+        });
 
         jLabel5.setText("Password :");
 
@@ -83,6 +150,38 @@ public class Register extends javax.swing.JFrame {
         });
 
         jPasswordFieldPassword.setPreferredSize(new java.awt.Dimension(64, 30));
+        jPasswordFieldPassword.getDocument().addDocumentListener(new DocumentListener() {
+
+            public void checkpass()
+            {
+                String pass1=new String(jPasswordFieldPassword.getPassword());
+                String pass2=new String(jPasswordFieldConfirmPass.getPassword());
+                if(pass1.equals(pass2))
+                {
+                    jLabelPasswordError.setText("password matches");
+                }
+                else
+                {
+                    jLabelPasswordError.setText("password didn't match");
+                }
+            }
+            public void insertUpdate(DocumentEvent e)
+            {
+                Validation.registrationAddButtonValidation(jTextFieldFname, jTextFieldLname, jTextFieldEmail, jTextFieldUsername, jPasswordFieldPassword, jPasswordFieldConfirmPass, jButtonCreateAccount);
+                checkpass();
+            }
+
+            public void removeUpdate(DocumentEvent e)
+            {
+                Validation.registrationAddButtonValidation(jTextFieldFname, jTextFieldLname, jTextFieldEmail, jTextFieldUsername, jPasswordFieldPassword, jPasswordFieldConfirmPass, jButtonCreateAccount);
+                checkpass();
+            }
+
+            public void changedUpdate(DocumentEvent e) {
+                // This method is not used for plain text documents
+            }
+
+        });
 
         jLabel6.setText("User Name :");
 
@@ -96,15 +195,17 @@ public class Register extends javax.swing.JFrame {
                     {
                         if(User.checkUserName(jTextFieldUsername.getText()))
                         {
-                            jLabelUsernameError.setForeground(Color.RED);
+                            //                         jLabelUsernameError.setForeground(Color.RED);
                             jLabelUsernameError.setText("username unavailable");
-                            jButtonCreateAccount.setEnabled(false);
+                            //                         jButtonCreateAccount.setEnabled(false);
+                            Validation.registrationAddButtonValidation(jTextFieldFname, jTextFieldLname, jTextFieldEmail, jTextFieldUsername, jPasswordFieldPassword, jPasswordFieldConfirmPass, jButtonCreateAccount);
                         }
                         else
                         {
-                            jLabelUsernameError.setForeground(Color.GREEN);
+                            //                         jLabelUsernameError.setForeground(Color.GREEN);
                             jLabelUsernameError.setText("username available");
-                            jButtonCreateAccount.setEnabled(true);
+                            //                         jButtonCreateAccount.setEnabled(true);
+                            Validation.registrationAddButtonValidation(jTextFieldFname, jTextFieldLname, jTextFieldEmail, jTextFieldUsername, jPasswordFieldPassword, jPasswordFieldConfirmPass, jButtonCreateAccount);
                         }
                     }
                 }
@@ -128,9 +229,16 @@ public class Register extends javax.swing.JFrame {
 
             jPasswordFieldConfirmPass.setPreferredSize(new java.awt.Dimension(64, 30));
 
+            jLabelUsernameError.setForeground(new java.awt.Color(255, 0, 51));
             jLabelUsernameError.setText(" ");
 
             jLabelEmailError.setText(" ");
+
+            jLabelEmailError1.setForeground(new java.awt.Color(255, 0, 51));
+            jLabelEmailError1.setText(" ");
+
+            jLabelPasswordError.setForeground(new java.awt.Color(255, 0, 51));
+            jLabelPasswordError.setText(" ");
 
             javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
             jPanel3.setLayout(jPanel3Layout);
@@ -144,14 +252,18 @@ public class Register extends javax.swing.JFrame {
                     .addContainerGap(151, Short.MAX_VALUE))
                 .addGroup(jPanel3Layout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel2)
-                        .addComponent(jLabel4)
-                        .addComponent(jLabel5)
-                        .addComponent(jTextFieldFname, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                        .addComponent(jTextFieldEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPasswordFieldPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabelEmailError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jLabelPasswordError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTextFieldFname, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                        .addComponent(jPasswordFieldPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addComponent(jLabelEmailError1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabelEmailError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jTextFieldEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGap(92, 92, 92)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabelUsernameError, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
@@ -188,12 +300,16 @@ public class Register extends javax.swing.JFrame {
                         .addComponent(jTextFieldUsername, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addComponent(jLabelUsernameError)
-                            .addGap(8, 8, 8))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabelUsernameError)
+                                .addGap(8, 8, 8))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabelEmailError)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                            .addComponent(jLabelEmailError)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                            .addComponent(jLabelEmailError1)
+                            .addGap(18, 18, 18)))
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel3Layout.createSequentialGroup()
                             .addComponent(jLabel5)
@@ -203,12 +319,46 @@ public class Register extends javax.swing.JFrame {
                             .addComponent(jLabel7)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jPasswordFieldConfirmPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabelPasswordError)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButtonCreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(31, 31, 31))
             );
+
+            jPasswordFieldConfirmPass.getDocument().addDocumentListener(new DocumentListener() {
+                public void checkpass()
+                {
+                    String pass1=new String(jPasswordFieldPassword.getPassword());
+                    String pass2=new String(jPasswordFieldConfirmPass.getPassword());
+                    if(pass1.equals(pass2))
+                    {
+                        jLabelPasswordError.setText("password matches");
+                    }
+                    else
+                    {
+                        jLabelPasswordError.setText("password didn't match");
+                    }
+                }
+                public void insertUpdate(DocumentEvent e)
+                {
+                    Validation.registrationAddButtonValidation(jTextFieldFname, jTextFieldLname, jTextFieldEmail, jTextFieldUsername, jPasswordFieldPassword, jPasswordFieldConfirmPass, jButtonCreateAccount);
+                    checkpass();
+                }
+
+                public void removeUpdate(DocumentEvent e)
+                {
+                    Validation.registrationAddButtonValidation(jTextFieldFname, jTextFieldLname, jTextFieldEmail, jTextFieldUsername, jPasswordFieldPassword, jPasswordFieldConfirmPass, jButtonCreateAccount);
+                    checkpass();
+                }
+
+                public void changedUpdate(DocumentEvent e) {
+                    // This method is not used for plain text documents
+                }
+
+            });
 
             javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
             jPanel1.setLayout(jPanel1Layout);
@@ -230,7 +380,7 @@ public class Register extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addGap(18, 18, 18)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(68, Short.MAX_VALUE))
+                    .addContainerGap(62, Short.MAX_VALUE))
             );
 
             javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -273,6 +423,7 @@ public class Register extends javax.swing.JFrame {
         { 
             System.out.println("user registered");
             User.registerUser(fname, lname, email,uname , pass1);
+            
         }
         else
         {
@@ -319,6 +470,8 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabelEmailError;
+    private javax.swing.JLabel jLabelEmailError1;
+    private javax.swing.JLabel jLabelPasswordError;
     private javax.swing.JLabel jLabelUsernameError;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;

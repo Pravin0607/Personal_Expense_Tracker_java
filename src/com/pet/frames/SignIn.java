@@ -186,7 +186,7 @@ public class SignIn extends javax.swing.JFrame {
                    {
                        new Dashboard().setVisible(true);
                    }
-               });                           
+               });
         }
         else
         {
