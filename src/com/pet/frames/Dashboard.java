@@ -76,26 +76,25 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTableDatewiseExpense = new javax.swing.JTable();
-        jButton4 = new javax.swing.JButton();
+        jButtonDaywiseReportGenerate = new javax.swing.JButton();
         jDateChooserDaywiseDate = new com.toedter.calendar.JDateChooser();
         jLabel31 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        jTableMonthwiseReport = new javax.swing.JTable();
         jLabel28 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        jButtonMonthwiseReportGenerate = new javax.swing.JButton();
         jLabel29 = new javax.swing.JLabel();
-        jMonthChooser1 = new com.toedter.calendar.JMonthChooser();
+        jMonthChooserMonthwise = new com.toedter.calendar.JMonthChooser();
+        jYearChooserMonthWise = new com.toedter.calendar.JYearChooser();
         jPanel7 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jButton2 = new javax.swing.JButton();
+        jButtonYearwiseReportGenerate = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableYearwiseReport = new javax.swing.JTable();
+        jYearChooserYearwise = new com.toedter.calendar.JYearChooser();
         jPanelProfile = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -229,7 +228,7 @@ public class Dashboard extends javax.swing.JFrame {
                             .addGroup(jPanelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(lbltotalMonth, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lbltotalYear, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)))))
-                .addContainerGap(547, Short.MAX_VALUE))
+                .addContainerGap(580, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelHomeLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,7 +264,7 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(lbltotaltoday))
                 .addGap(75, 75, 75)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(227, Short.MAX_VALUE))
+                .addContainerGap(229, Short.MAX_VALUE))
         );
 
         tabsCategory.addTab("Home", jPanelHome);
@@ -356,7 +355,7 @@ public class Dashboard extends javax.swing.JFrame {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel10)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jDateChooserExpenseDate, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE))
+                            .addComponent(jDateChooserExpenseDate, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11)
@@ -474,7 +473,7 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1155, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1188, Short.MAX_VALUE))
                 .addGap(28, 28, 28))
         );
         jPanelExpensesLayout.setVerticalGroup(
@@ -487,7 +486,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 415, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE))
         );
 
         tabsCategory.addTab("Expense", jPanelExpenses);
@@ -653,7 +652,7 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
             .addContainerGap()
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)
             .addContainerGap())
     );
 
@@ -664,13 +663,13 @@ public class Dashboard extends javax.swing.JFrame {
     jPanelCtegoryLayout.setHorizontalGroup(
         jPanelCtegoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanelCtegoryLayout.createSequentialGroup()
-            .addContainerGap(87, Short.MAX_VALUE)
+            .addContainerGap(104, Short.MAX_VALUE)
             .addGroup(jPanelCtegoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                 .addComponent(jLabel5)
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jSeparator2))
-            .addContainerGap(89, Short.MAX_VALUE))
+            .addContainerGap(105, Short.MAX_VALUE))
     );
     jPanelCtegoryLayout.setVerticalGroup(
         jPanelCtegoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -703,15 +702,15 @@ public class Dashboard extends javax.swing.JFrame {
 
         },
         new String [] {
-            "Category Name", "Money Spent"
+            "Category Name", "Money Spent (Rs)"
         }
     ));
     jScrollPane5.setViewportView(jTableDatewiseExpense);
 
-    jButton4.setText("Update Report");
-    jButton4.addActionListener(new java.awt.event.ActionListener() {
+    jButtonDaywiseReportGenerate.setText("Update Report");
+    jButtonDaywiseReportGenerate.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jButton4ActionPerformed(evt);
+            jButtonDaywiseReportGenerateActionPerformed(evt);
         }
     });
 
@@ -733,7 +732,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(547, 547, 547)
                     .addComponent(jLabel23)
-                    .addGap(0, 541, Short.MAX_VALUE)))
+                    .addGap(0, 574, Short.MAX_VALUE)))
             .addContainerGap())
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
             .addGap(0, 0, Short.MAX_VALUE)
@@ -741,7 +740,7 @@ public class Dashboard extends javax.swing.JFrame {
             .addGap(18, 18, 18)
             .addComponent(jDateChooserDaywiseDate, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(18, 18, 18)
-            .addComponent(jButton4)
+            .addComponent(jButtonDaywiseReportGenerate)
             .addGap(458, 458, 458))
     );
     jPanel1Layout.setVerticalGroup(
@@ -751,10 +750,10 @@ public class Dashboard extends javax.swing.JFrame {
             .addComponent(jLabel23)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonDaywiseReportGenerate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jDateChooserDaywiseDate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addContainerGap())
     );
@@ -764,31 +763,24 @@ public class Dashboard extends javax.swing.JFrame {
     jLabel24.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
     jLabel24.setText("Monthly Report");
 
-    jTable2.setModel(new javax.swing.table.DefaultTableModel(
+    jTableMonthwiseReport.setModel(new javax.swing.table.DefaultTableModel(
         new Object [][] {
-            {null, null},
-            {null, null},
-            {null, null},
-            {null, null}
+
         },
         new String [] {
-            "Category Name", "Money Spent"
+            "Category Name", "Money Spent (Rs)"
         }
     ));
-    jScrollPane4.setViewportView(jTable2);
-
-    jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+    jScrollPane4.setViewportView(jTableMonthwiseReport);
 
     jLabel28.setText("Year :");
 
-    jButton3.setText("Generate");
-    jButton3.addActionListener(new java.awt.event.ActionListener() {
+    jButtonMonthwiseReportGenerate.setText("Generate Report");
+    jButtonMonthwiseReportGenerate.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jButton3ActionPerformed(evt);
+            jButtonMonthwiseReportGenerateActionPerformed(evt);
         }
     });
-
-    jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
     jLabel29.setText("Month :");
 
@@ -800,46 +792,38 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jScrollPane4)
                 .addGroup(jPanel8Layout.createSequentialGroup()
-                    .addContainerGap(201, Short.MAX_VALUE)
-                    .addComponent(jMonthChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel8Layout.createSequentialGroup()
-                            .addGap(202, 202, 202)
-                            .addComponent(jLabel24)
-                            .addGap(0, 0, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                            .addGap(49, 49, 49)
-                            .addComponent(jLabel29)
-                            .addGap(26, 26, 26)
-                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jLabel28)
-                            .addGap(18, 18, 18)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jButton3)
-                            .addGap(366, 366, 366)))))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel24)
+                    .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                    .addContainerGap(317, Short.MAX_VALUE)
+                    .addComponent(jLabel29)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jMonthChooserMonthwise, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(jLabel28)
+                    .addGap(18, 18, 18)
+                    .addComponent(jYearChooserMonthWise, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(41, 41, 41)
+                    .addComponent(jButtonMonthwiseReportGenerate)
+                    .addGap(346, 346, 346)))
             .addContainerGap())
     );
     jPanel8Layout.setVerticalGroup(
         jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel8Layout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(jLabel24)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel8Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabel24)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel28)
-                        .addComponent(jButton3)
-                        .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel29))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jMonthChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(20, 20, 20)))
+                    .addComponent(jButtonMonthwiseReportGenerate)
+                    .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jMonthChooserMonthwise, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                .addComponent(jYearChooserMonthWise, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel29, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE))
     );
 
@@ -848,21 +832,21 @@ public class Dashboard extends javax.swing.JFrame {
     jLabel25.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
     jLabel25.setText("Yearly Report");
 
-    jLabel27.setText("Year");
+    jLabel27.setText("Year:");
 
-    jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+    jButtonYearwiseReportGenerate.setText("Generate Report");
+    jButtonYearwiseReportGenerate.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jButtonYearwiseReportGenerateActionPerformed(evt);
+        }
+    });
 
-    jButton2.setText("Generate");
-
-    jTable1.setModel(new javax.swing.table.DefaultTableModel(
+    jTableYearwiseReport.setModel(new javax.swing.table.DefaultTableModel(
         new Object [][] {
-            {null, null},
-            {null, null},
-            {null, null},
-            {null, null}
+
         },
         new String [] {
-            "Category", "Money Spent"
+            "Category", "Money Spent (Rs)"
         }
     ) {
         boolean[] canEdit = new boolean [] {
@@ -873,7 +857,7 @@ public class Dashboard extends javax.swing.JFrame {
             return canEdit [columnIndex];
         }
     });
-    jScrollPane3.setViewportView(jTable1);
+    jScrollPane3.setViewportView(jTableYearwiseReport);
 
     javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
     jPanel7.setLayout(jPanel7Layout);
@@ -881,20 +865,19 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel7Layout.createSequentialGroup()
             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
                 .addGroup(jPanel7Layout.createSequentialGroup()
-                    .addGap(547, 547, 547)
-                    .addComponent(jLabel25)
-                    .addGap(0, 0, Short.MAX_VALUE))
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addGap(471, 471, 471)
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel25)
+                        .addGroup(jPanel7Layout.createSequentialGroup()
+                            .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jYearChooserYearwise, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonYearwiseReportGenerate)
+                    .addGap(433, 433, 433)))
             .addContainerGap())
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-            .addGap(0, 453, Short.MAX_VALUE)
-            .addComponent(jLabel27)
-            .addGap(18, 18, 18)
-            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(59, 59, 59)
-            .addComponent(jButton2)
-            .addGap(439, 439, 439))
     );
     jPanel7Layout.setVerticalGroup(
         jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -902,12 +885,12 @@ public class Dashboard extends javax.swing.JFrame {
             .addContainerGap()
             .addComponent(jLabel25)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel27)
-                .addComponent(jButton2))
+            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addComponent(jButtonYearwiseReportGenerate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jYearChooserYearwise, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel27, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
             .addContainerGap())
     );
 
@@ -1133,11 +1116,11 @@ public class Dashboard extends javax.swing.JFrame {
         jPanelProfileLayout.setHorizontalGroup(
             jPanelProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelProfileLayout.createSequentialGroup()
-                .addContainerGap(65, Short.MAX_VALUE)
+                .addContainerGap(82, Short.MAX_VALUE)
                 .addGroup(jPanelProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
         jPanelProfileLayout.setVerticalGroup(
             jPanelProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1364,9 +1347,28 @@ public class Dashboard extends javax.swing.JFrame {
         lbltotalMonth.setText(Double.toString(Report.totalMoneySpentThisMonth()));
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButtonMonthwiseReportGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMonthwiseReportGenerateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+        
+        int month=jMonthChooserMonthwise.getMonth();
+        int year=jYearChooserMonthWise.getYear();
+        DefaultTableModel dm=(DefaultTableModel) jTableMonthwiseReport.getModel();
+        dm.setRowCount(0);
+        Object [][] dataMonthwise=Report.monthwiseReport(month,year);
+
+        if (dataMonthwise != null) {
+                    // Iterate through the rows and add them to the DefaultTableModel
+                    for (Object[] row : dataMonthwise) {
+                        dm.addRow(row);
+                    }
+                } else {
+                    // Handle the case when data is null or empty
+                    System.out.println("No data available");
+                    new AlertPopupDanger(null, "No data Availabele");
+                }
+        
+        
+    }//GEN-LAST:event_jButtonMonthwiseReportGenerateActionPerformed
 
     private void jComboBoxExpenseCategoryPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_jComboBoxExpenseCategoryPopupMenuWillBecomeInvisible
         // TODO add your handling code here:
@@ -1387,9 +1389,10 @@ jComboBoxExpenseCategory.setModel(comboBoxModel);
         
     }//GEN-LAST:event_jComboBoxExpenseCategoryPopupMenuWillBecomeInvisible
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jButtonDaywiseReportGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDaywiseReportGenerateActionPerformed
         // TODO add your handling code here:
        DefaultTableModel dm=(DefaultTableModel) jTableDatewiseExpense.getModel();
+       dm.setRowCount(0);
        Date date=jDateChooserDaywiseDate.getDate();
             String formattedDate="";
             if(date!=null)
@@ -1410,7 +1413,30 @@ jComboBoxExpenseCategory.setModel(comboBoxModel);
             }
        
         
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_jButtonDaywiseReportGenerateActionPerformed
+
+    private void jButtonYearwiseReportGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonYearwiseReportGenerateActionPerformed
+        // TODO add your handling code here:
+        
+        int year=jYearChooserYearwise.getYear();
+       DefaultTableModel dm=(DefaultTableModel) jTableYearwiseReport.getModel();
+        dm.setRowCount(0);
+        
+               Object [][] yearwiseData=Report.yearwiseReport(year);
+           if (yearwiseData != null) {
+   
+               // Iterate through the rows and add them to the DefaultTableModel
+                for (Object[] row : yearwiseData) {
+                    dm.addRow(row);
+                }
+            } else {
+                // Handle the case when data is null or empty
+                new AlertPopupDanger(null, "no data available");
+            }
+        
+        
+        
+    }//GEN-LAST:event_jButtonYearwiseReportGenerateActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -1451,15 +1477,12 @@ jComboBoxExpenseCategory.setModel(comboBoxModel);
     private javax.swing.JLabel expenseAddErrorLabel;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButtonAddCategory;
+    private javax.swing.JButton jButtonDaywiseReportGenerate;
     private javax.swing.JButton jButtonExpenseAdd;
+    private javax.swing.JButton jButtonMonthwiseReportGenerate;
     private javax.swing.JButton jButtonUpdateProfile;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JButton jButtonYearwiseReportGenerate;
     private javax.swing.JComboBox<String> jComboBoxExpenseCategory;
     private com.toedter.calendar.JDateChooser jDateChooserDaywiseDate;
     private com.toedter.calendar.JDateChooser jDateChooserExpenseDate;
@@ -1496,7 +1519,7 @@ jComboBoxExpenseCategory.setModel(comboBoxModel);
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelCategoryErrror;
-    private com.toedter.calendar.JMonthChooser jMonthChooser1;
+    private com.toedter.calendar.JMonthChooser jMonthChooserMonthwise;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
@@ -1521,11 +1544,11 @@ jComboBoxExpenseCategory.setModel(comboBoxModel);
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTable jTableCategory;
     private javax.swing.JTable jTableDatewiseExpense;
     private javax.swing.JTable jTableExpense;
+    private javax.swing.JTable jTableMonthwiseReport;
+    private javax.swing.JTable jTableYearwiseReport;
     private javax.swing.JTextField jTextField4Fname;
     private javax.swing.JTextField jTextField4Username;
     private javax.swing.JTextField jTextField5lname;
@@ -1533,6 +1556,8 @@ jComboBoxExpenseCategory.setModel(comboBoxModel);
     private javax.swing.JTextField jTextFieldCategory;
     private javax.swing.JTextField jTextFieldExpenseAmount;
     private javax.swing.JTextField jTextFieldExpenseDescription;
+    private com.toedter.calendar.JYearChooser jYearChooserMonthWise;
+    private com.toedter.calendar.JYearChooser jYearChooserYearwise;
     private javax.swing.JLabel lbltotal;
     private javax.swing.JLabel lbltotalMonth;
     private javax.swing.JLabel lbltotalYear;
