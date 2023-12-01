@@ -91,18 +91,23 @@ public static long totalMoneySpentThisYear() {
 //    datewise data
 
     public static Object[][] getDatewiseReport(String date) {
-        String query = "SELECT c.category_name, SUM(e.amount) " +
-                       "FROM Expense e " +
-                       "JOIN Category c ON e.category_id = c.category_id " +
-                       "WHERE e.user_id = ? AND e.date = ? " +
-                       "GROUP BY c.category_name";
+
+        
 
         Connection conn = DBConnection.getConnection();
         List<Object[]> resultData = new ArrayList<>();
 
+        String query = "SELECT c.category_name, COALESCE(SUM(e.amount), 0) AS total_amount " +
+               "FROM Category c " +
+               "LEFT JOIN Expense e ON c.category_id = e.category_id AND e.user_id = ? AND e.date = ? " +
+               "WHERE c.user_id = ? " +
+               "GROUP BY c.category_name " +
+               "ORDER BY total_amount DESC";
+        
         try (PreparedStatement ps = conn.prepareStatement(query)) {
             ps.setInt(1, PersonalExpenseTracker.userId);
             ps.setString(2, date);
+            ps.setInt(3, PersonalExpenseTracker.userId);
 
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
@@ -148,16 +153,18 @@ Timestamp endDateSql = new Timestamp(endDate.getTime());
 //        ps.setDate(1, new java.sql.Date(startDate.getTime()));
 //        ps.setDate(2, new java.sql.Date(endDate.getTime()));
 
-String query = "SELECT c.category_name, SUM(e.amount) " +
+String query = "SELECT c.category_name, COALESCE(SUM(e.amount), 0) AS total_amount " +
                "FROM Category c " +
-               "LEFT JOIN Expense e ON c.category_id = e.category_id " +
-               "WHERE e.date BETWEEN ? AND ? AND e.user_id = ? " +
-               "GROUP BY c.category_name";
+               "LEFT JOIN Expense e ON c.category_id = e.category_id AND e.date BETWEEN ? AND ? AND e.user_id = ? " +
+               "WHERE c.user_id = ? " +
+               "GROUP BY c.category_name " +
+               "ORDER BY total_amount DESC";
 
 PreparedStatement ps = conn.prepareStatement(query);
 ps.setTimestamp(1, startDateSql);
 ps.setTimestamp(2, endDateSql);
 ps.setInt(3, PersonalExpenseTracker.userId);
+ps.setInt(4, PersonalExpenseTracker.userId);
 
         ResultSet rs = ps.executeQuery();
 
@@ -202,16 +209,18 @@ ps.setInt(3, PersonalExpenseTracker.userId);
         Timestamp endDateSql = new Timestamp(endDate.getTime());
 
         // Query to get category-wise expenses within the specified date range for the user
-        String query = "SELECT c.category_name, SUM(e.amount) " +
-                       "FROM Category c " +
-                       "LEFT JOIN Expense e ON c.category_id = e.category_id " +
-                       "WHERE e.date BETWEEN ? AND ? AND e.user_id = ? " +
-                       "GROUP BY c.category_name";
+String query = "SELECT c.category_name, COALESCE(SUM(e.amount), 0) AS total_amount " +
+               "FROM Category c " +
+               "LEFT JOIN Expense e ON c.category_id = e.category_id AND e.date BETWEEN ? AND ? AND e.user_id = ? " +
+               "WHERE c.user_id = ? " +
+               "GROUP BY c.category_name " +
+               "ORDER BY total_amount DESC";
 
         PreparedStatement ps = conn.prepareStatement(query);
-        ps.setTimestamp(1, startDateSql);
-        ps.setTimestamp(2, endDateSql);
-        ps.setInt(3, PersonalExpenseTracker.userId);
+ps.setTimestamp(1, startDateSql);
+ps.setTimestamp(2, endDateSql);
+ps.setInt(3, PersonalExpenseTracker.userId);
+ps.setInt(4, PersonalExpenseTracker.userId);
 
         ResultSet rs = ps.executeQuery();
         List<Object[]> resultData = new ArrayList<>();

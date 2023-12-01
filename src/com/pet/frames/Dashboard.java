@@ -168,7 +168,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         jLabel2.setText("Home");
 
-        jLabel3.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Liberation Sans", 1, 16)); // NOI18N
         jLabel3.setText("Hello! "+PersonalExpenseTracker.fname +" Welcome to the Personal Expense Tracker.");
 
         jLabel19.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
@@ -264,7 +264,7 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(lbltotaltoday))
                 .addGap(75, 75, 75)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(229, Short.MAX_VALUE))
+                .addContainerGap(227, Short.MAX_VALUE))
         );
 
         tabsCategory.addTab("Home", jPanelHome);
@@ -640,6 +640,7 @@ public class Dashboard extends javax.swing.JFrame {
             }
         }
     );
+    jTableCategory.setRowHeight(30);
     jScrollPane2.setViewportView(jTableCategory);
 
     javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -705,6 +706,7 @@ public class Dashboard extends javax.swing.JFrame {
             "Category Name", "Money Spent (Rs)"
         }
     ));
+    jTableDatewiseExpense.setRowHeight(30);
     jScrollPane5.setViewportView(jTableDatewiseExpense);
 
     jButtonDaywiseReportGenerate.setText("Update Report");
@@ -771,6 +773,7 @@ public class Dashboard extends javax.swing.JFrame {
             "Category Name", "Money Spent (Rs)"
         }
     ));
+    jTableMonthwiseReport.setRowHeight(30);
     jScrollPane4.setViewportView(jTableMonthwiseReport);
 
     jLabel28.setText("Year :");
@@ -857,6 +860,7 @@ public class Dashboard extends javax.swing.JFrame {
             return canEdit [columnIndex];
         }
     });
+    jTableYearwiseReport.setRowHeight(30);
     jScrollPane3.setViewportView(jTableYearwiseReport);
 
     javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -1337,14 +1341,14 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        lbltotaltoday.setText(Double.toString(Report.totalMoneySpentToday()));
+        lbltotaltoday.setText(Double.toString(Report.totalMoneySpentToday())+" Rs");
         
-        lbltotalYear.setText(Long.toString(Report.totalMoneySpentThisYear()));
+        lbltotalYear.setText(Long.toString(Report.totalMoneySpentThisYear())+" Rs");
         
         
-        lbltotal.setText(Long.toString(Report.totalMoneySpent()));
+        lbltotal.setText(Long.toString(Report.totalMoneySpent())+" Rs");
         
-        lbltotalMonth.setText(Double.toString(Report.totalMoneySpentThisMonth()));
+        lbltotalMonth.setText(Double.toString(Report.totalMoneySpentThisMonth())+" Rs");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButtonMonthwiseReportGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMonthwiseReportGenerateActionPerformed
